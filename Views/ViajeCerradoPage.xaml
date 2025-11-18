@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:SistemaTaxiMobil.ViewModels"
+             x:Class="SistemaTaxiMobil.Views.ViajeCerradoPage"
+             x:DataType="viewmodel:ViajeCerradoViewModel"
+             Title="{Binding Title}">
+
+    <VerticalStackLayout Padding="20" Spacing="30" VerticalOptions="Center">
+
+        <Image Source="check_icon.png"
+               WidthRequest="100"
+               HeightRequest="100"
+               HorizontalOptions="Center"/>
+
+        <Label Text="¡Viaje Completado!"
+               Style="{StaticResource TitleLabel}"
+               FontSize="32"
+               TextColor="{StaticResource PrimaryColor}"/>
+
+        <Frame BorderColor="{StaticResource PrimaryColor}"
+               BackgroundColor="{StaticResource LightGray}"
+               CornerRadius="15"
+               Padding="30"
+               HasShadow="True">
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Costo Total"
+                       FontSize="20"
+                       HorizontalOptions="Center"
+                       TextColor="Gray"/>
+
+                <Label Text="{Binding CostoTotal, StringFormat='${0:F2}'}"
+                       FontSize="48"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="{StaticResource PrimaryColor}"/>
+
+                <BoxView HeightRequest="1" 
+                         Color="{StaticResource LightGray}"
+                         Margin="0,10"/>
+
+                <Label Text="Tarifa base + Tiempo + Distancia"
+                       FontSize="14"
+                       HorizontalOptions="Center"
+                       TextColor="Gray"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <Button 
+            Text="Aceptar"
+            Command="{Binding AceptarCommand}"
+            Style="{StaticResource PrimaryButton}"
+            IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"/>
+
+        <ActivityIndicator 
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            Color="{StaticResource PrimaryColor}"/>
+    </VerticalStackLayout>
+</ContentPage>

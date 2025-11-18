@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:SistemaTaxiMobil.ViewModels"
+             x:Class="SistemaTaxiMobil.Views.RegistroPasajeroPage"
+             x:DataType="viewmodel:RegistroPasajeroViewModel"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label 
+                Text="Datos del Pasajero"
+                Style="{StaticResource TitleLabel}"
+                Margin="0,20,0,10"/>
+
+            <Label 
+                Text="Complete su información personal"
+                FontSize="16"
+                TextColor="Gray"
+                HorizontalOptions="Center"
+                Margin="0,0,0,20"/>
+
+            <Frame BorderColor="{StaticResource LightGray}" 
+                   CornerRadius="10"
+                   Padding="0">
+                <VerticalStackLayout Spacing="0">
+                    <Entry 
+                        Placeholder="Nombre"
+                        Text="{Binding Nombre}"
+                        Style="{StaticResource EntryStyle}"/>
+
+                    <BoxView HeightRequest="1" Color="{StaticResource LightGray}"/>
+
+                    <Entry 
+                        Placeholder="Apellido Paterno"
+                        Text="{Binding ApPaterno}"
+                        Style="{StaticResource EntryStyle}"/>
+
+                    <BoxView HeightRequest="1" Color="{StaticResource LightGray}"/>
+
+                    <Entry 
+                        Placeholder="Apellido Materno"
+                        Text="{Binding ApMaterno}"
+                        Style="{StaticResource EntryStyle}"/>
+
+                    <BoxView HeightRequest="1" Color="{StaticResource LightGray}"/>
+
+                    <Entry 
+                        Placeholder="Teléfono (opcional)"
+                        Text="{Binding Telefono}"
+                        Keyboard="Telephone"
+                        Style="{StaticResource EntryStyle}"/>
+
+                    <BoxView HeightRequest="1" Color="{StaticResource LightGray}"/>
+
+                    <Entry 
+                        Placeholder="Correo Electrónico"
+                        Text="{Binding Correo}"
+                        Keyboard="Email"
+                        Style="{StaticResource EntryStyle}"/>
+
+                    <BoxView HeightRequest="1" Color="{StaticResource LightGray}"/>
+
+                    <Entry 
+                        Placeholder="Contraseña"
+                        Text="{Binding Contrasena}"
+                        IsPassword="True"
+                        Style="{StaticResource EntryStyle}"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button 
+                Text="Aceptar"
+                Command="{Binding AceptarCommand}"
+                Style="{StaticResource PrimaryButton}"
+                IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"
+                Margin="0,30,0,0"/>
+
+            <ActivityIndicator 
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                Color="{StaticResource PrimaryColor}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

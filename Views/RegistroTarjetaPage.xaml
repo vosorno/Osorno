@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:SistemaTaxiMobil.ViewModels"
+             x:Class="SistemaTaxiMobil.Views.RegistroTarjetaPage"
+             x:DataType="viewmodel:RegistroTarjetaViewModel"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label 
+                Text="Registrar Tarjeta"
+                Style="{StaticResource TitleLabel}"
+                Margin="0,20,0,10"/>
+
+            <Label 
+                Text="Ingrese los datos de su tarjeta"
+                FontSize="16"
+                TextColor="Gray"
+                HorizontalOptions="Center"
+                Margin="0,0,0,20"/>
+
+            <!-- Vista previa de tarjeta -->
+            <Frame BorderColor="{StaticResource PrimaryColor}"
+                   BackgroundColor="{StaticResource PrimaryColor}"
+                   CornerRadius="15"
+                   Padding="20"
+                   HeightRequest="200"
+                   Margin="0,0,0,20">
+                <Grid RowDefinitions="Auto,*,Auto">
+                    <Label Grid.Row="0"
+                           Text="●●●● ●●●● ●●●●"
+                           FontSize="24"
+                           FontFamily="Courier"
+                           TextColor="White"
+                           VerticalOptions="Start"/>
+
+                    <Label Grid.Row="2"
+                           Text="{Binding NombreTitular}"
+                           FontSize="18"
+                           TextColor="White"
+                           VerticalOptions="End"/>
+                </Grid>
+            </Frame>
+
+            <!-- Formulario -->
+            <Frame BorderColor="{StaticResource LightGray}" 
+                   CornerRadius="10"
+                   Padding="0">
+                <VerticalStackLayout Spacing="0">
+                    <Entry 
+                        Placeholder="Número de Tarjeta (16 dígitos)"
+                        Text="{Binding NumeroTarjeta}"
+                        Keyboard="Numeric"
+                        MaxLength="16"
+                        Style="{StaticResource EntryStyle}"/>
+
+                    <BoxView HeightRequest="1" Color="{StaticResource LightGray}"/>
+
+                    <Entry 
+                        Placeholder="Nombre del Titular"
+                        Text="{Binding NombreTitular}"
+                        Style="{StaticResource EntryStyle}"/>
+
+                    <BoxView HeightRequest="1" Color="{StaticResource LightGray}"/>
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="1">
+                        <Entry Grid.Column="0"
+                               Placeholder="MM/AA"
+                               Text="{Binding FechaVencimiento}"
+                               MaxLength="5"
+                               Style="{StaticResource EntryStyle}"/>
+
+                        <BoxView Grid.Column="0" 
+                                 WidthRequest="1" 
+                                 Color="{StaticResource LightGray}"
+                                 HorizontalOptions="End"/>
+
+                        <Entry Grid.Column="1"
+                               Placeholder="CVV"
+                               Text="{Binding Cvv}"
+                               Keyboard="Numeric"
+                               MaxLength="4"
+                               IsPassword="True"
+                               Style="{StaticResource EntryStyle}"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label 
+                Text="🔒 Tus datos están protegidos y encriptados"
+                FontSize="14"
+                TextColor="Green"
+                HorizontalOptions="Center"
+                Margin="0,10,0,0"/>
+
+            <Button 
+                Text="Guardar Tarjeta"
+                Command="{Binding GuardarTarjetaCommand}"
+                Style="{StaticResource PrimaryButton}"
+                IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"
+                Margin="0,20,0,0"/>
+
+            <ActivityIndicator 
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                Color="{StaticResource PrimaryColor}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

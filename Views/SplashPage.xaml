@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:SistemaTaxiMobil.ViewModels"
+             x:Class="SistemaTaxiMobil.Views.SplashPage"
+             x:DataType="viewmodel:SplashViewModel"
+             BackgroundColor="{StaticResource PrimaryColor}">
+
+    <Grid>
+        <VerticalStackLayout
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Spacing="40">
+
+            <Label 
+                Text="Bienvenido"
+                Style="{StaticResource TitleLabel}"
+                TextColor="White"
+                FontSize="48"
+                HorizontalTextAlignment="Center"/>
+
+            <Label 
+                Text="Unión de Taxis"
+                Style="{StaticResource SubtitleLabel}"
+                TextColor="{StaticResource SecondaryColor}"
+                FontSize="32"
+                HorizontalTextAlignment="Center"/>
+
+            <Button 
+                Text="Ingresar"
+                Command="{Binding IngresarCommand}"
+                Style="{StaticResource PrimaryButton}"
+                BackgroundColor="{StaticResource SecondaryColor}"
+                TextColor="{StaticResource PrimaryColor}"
+                WidthRequest="250"
+                Margin="0,60,0,0"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaTaxiMobil", "SistemaTaxiMobil.csproj", "{4885AC72-5BBC-46D7-A977-8AD2891DADB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaTaxiMobil.Core", "..\SistemaTaxiMobil.Core\SistemaTaxiMobil.Core.csproj", "{E8DF01FE-6963-45A6-8F7E-F5978CA7010C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaTaxiMobil.Infrastructure", "..\SistemaTaxiMobil.Infrastructure\SistemaTaxiMobil.Infrastructure.csproj", "{CE7656BD-4C4E-46BF-BEF1-88B69113B21E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4885AC72-5BBC-46D7-A977-8AD2891DADB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4885AC72-5BBC-46D7-A977-8AD2891DADB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4885AC72-5BBC-46D7-A977-8AD2891DADB0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4885AC72-5BBC-46D7-A977-8AD2891DADB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4885AC72-5BBC-46D7-A977-8AD2891DADB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4885AC72-5BBC-46D7-A977-8AD2891DADB0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E8DF01FE-6963-45A6-8F7E-F5978CA7010C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8DF01FE-6963-45A6-8F7E-F5978CA7010C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8DF01FE-6963-45A6-8F7E-F5978CA7010C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8DF01FE-6963-45A6-8F7E-F5978CA7010C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE7656BD-4C4E-46BF-BEF1-88B69113B21E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE7656BD-4C4E-46BF-BEF1-88B69113B21E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE7656BD-4C4E-46BF-BEF1-88B69113B21E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE7656BD-4C4E-46BF-BEF1-88B69113B21E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F86FEDD0-3FE5-430F-B2BA-6F72869D17A5}
+	EndGlobalSection
+EndGlobal

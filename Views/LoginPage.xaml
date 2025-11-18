@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:SistemaTaxiMobil.ViewModels"
+             x:Class="SistemaTaxiMobil.Views.LoginPage"
+             x:DataType="viewmodel:LoginViewModel"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label 
+                Text="Iniciar Sesión"
+                Style="{StaticResource TitleLabel}"
+                Margin="0,40,0,20"/>
+
+            <!-- Selector de Rol -->
+            <Frame BorderColor="{StaticResource PrimaryColor}" 
+                   CornerRadius="10"
+                   Padding="10"
+                   Margin="0,0,0,20">
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                    <Button 
+                        Grid.Column="0"
+                        Text="Pasajero"
+                        Command="{Binding CambiarRolCommand}"
+                        BackgroundColor="{Binding EsPasajero, Converter={StaticResource BoolToColorConverter}, ConverterParameter='Primary'}"
+                        TextColor="White"/>
+                    <Button 
+                        Grid.Column="1"
+                        Text="Conductor"
+                        Command="{Binding CambiarRolCommand}"
+                        BackgroundColor="{Binding EsPasajero, Converter={StaticResource BoolToColorConverter}, ConverterParameter='Secondary'}"
+                        TextColor="White"/>
+                </Grid>
+            </Frame>
+
+            <!-- Campos de entrada -->
+            <Frame BorderColor="{StaticResource LightGray}" 
+                   CornerRadius="10"
+                   Padding="0">
+                <VerticalStackLayout Spacing="0">
+                    <Entry 
+                        Placeholder="Usuario"
+                        Text="{Binding Usuario}"
+                        Style="{StaticResource EntryStyle}"/>
+
+                    <BoxView HeightRequest="1" Color="{StaticResource LightGray}"/>
+
+                    <Entry 
+                        Placeholder="Contraseña"
+                        Text="{Binding Password}"
+                        IsPassword="True"
+                        Style="{StaticResource EntryStyle}"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button 
+                Text="Iniciar Sesión"
+                Command="{Binding IniciarSesionCommand}"
+                Style="{StaticResource PrimaryButton}"
+                IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"
+                Margin="0,20,0,0"/>
+
+            <Button 
+                Text="Registrarse"
+                Command="{Binding RegistrarseCommand}"
+                BackgroundColor="Transparent"
+                TextColor="{StaticResource PrimaryColor}"
+                BorderWidth="2"
+                BorderColor="{StaticResource PrimaryColor}"
+                Style="{StaticResource PrimaryButton}"/>
+
+            <ActivityIndicator 
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                Color="{StaticResource PrimaryColor}"
+                Margin="0,20,0,0"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

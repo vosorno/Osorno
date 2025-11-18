@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:SistemaTaxiMobil.ViewModels"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             x:Class="SistemaTaxiMobil.Views.ViajeEnCursoPage"
+             x:DataType="viewmodel:ViajeEnCursoViewModel"
+             Title="{Binding Title}">
+
+    <Grid RowDefinitions="*,Auto">
+
+        <!-- Mapa con ruta -->
+        <maps:Map x:Name="mapa"
+                  Grid.Row="0"
+                  IsShowingUser="True"
+                  MapType="Street"/>
+
+        <!-- Panel de información del conductor -->
+        <Frame Grid.Row="1"
+               CornerRadius="20,20,0,0"
+               Padding="20"
+               HasShadow="True"
+               BackgroundColor="White">
+            <VerticalStackLayout Spacing="20">
+
+                <Label Text="Tu taxi está en camino"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"/>
+
+                <!-- Información del conductor -->
+                <Frame BorderColor="{StaticResource LightGray}"
+                       Padding="15">
+                    <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="10">
+                        <Grid Grid.Row="0" ColumnDefinitions="Auto,*">
+                            <Label Grid.Column="0" 
+                                   Text="Conductor: "
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Column="1" 
+                                   Text="{Binding NombreConductor}"/>
+                        </Grid>
+
+                        <Grid Grid.Row="1" ColumnDefinitions="Auto,*">
+                            <Label Grid.Column="0" 
+                                   Text="Placas: "
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Column="1" 
+                                   Text="{Binding Placas}"/>
+                        </Grid>
+
+                        <Grid Grid.Row="2" ColumnDefinitions="Auto,*">
+                            <Label Grid.Column="0" 
+                                   Text="Vehículo: "
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Column="1" 
+                                   Text="{Binding Vehiculo}"/>
+                        </Grid>
+                    </Grid>
+                </Frame>
+
+                <!-- Tiempo transcurrido -->
+                <Label Text="{Binding TiempoTranscurrido}"
+                       FontSize="36"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="{StaticResource PrimaryColor}"/>
+
+                <Label Text="Tiempo transcurrido"
+                       FontSize="14"
+                       TextColor="Gray"
+                       HorizontalOptions="Center"/>
+
+                <!-- Botón finalizar (para testing) -->
+                <Button 
+                    Text="Finalizar Viaje"
+                    Command="{Binding FinalizarViajeCommand}"
+                    Style="{StaticResource PrimaryButton}"
+                    BackgroundColor="{StaticResource AccentColor}"/>
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>

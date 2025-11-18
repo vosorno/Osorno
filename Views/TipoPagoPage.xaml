@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:SistemaTaxiMobil.ViewModels"
+             x:Class="SistemaTaxiMobil.Views.TipoPagoPage"
+             x:DataType="viewmodel:TipoPagoViewModel"
+             Title="{Binding Title}">
+
+    <VerticalStackLayout Padding="20" Spacing="30" VerticalOptions="Center">
+
+        <Label 
+            Text="Seleccione Método de Pago"
+            Style="{StaticResource TitleLabel}"
+            FontSize="28"
+            Margin="0,0,0,40"/>
+
+        <!-- Opción Efectivo -->
+        <Frame BorderColor="{Binding EsEfectivo, Converter={StaticResource BoolToBorderColorConverter}}"
+               BackgroundColor="{Binding EsEfectivo, Converter={StaticResource BoolToBackgroundConverter}}"
+               CornerRadius="15"
+               Padding="0"
+               HasShadow="True">
+            <Grid ColumnDefinitions="Auto,*,Auto" 
+                  Padding="20"
+                  ColumnSpacing="15">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SeleccionarEfectivoCommand}"/>
+                </Grid.GestureRecognizers>
+
+                <Image Grid.Column="0"
+                       Source="efectivo_icon.png"
+                       WidthRequest="50"
+                       HeightRequest="50"
+                       VerticalOptions="Center"/>
+
+                <VerticalStackLayout Grid.Column="1" 
+                                     VerticalOptions="Center">
+                    <Label Text="Efectivo"
+                           FontSize="22"
+                           FontAttributes="Bold"/>
+                    <Label Text="Pague directamente al conductor"
+                           FontSize="14"
+                           TextColor="Gray"/>
+                </VerticalStackLayout>
+
+                <CheckBox Grid.Column="2"
+                          IsChecked="{Binding EsEfectivo}"
+                          VerticalOptions="Center"
+                          Color="{StaticResource PrimaryColor}"/>
+            </Grid>
+        </Frame>
+
+        <!-- Opción Tarjeta -->
+        <Frame BorderColor="{Binding EsTarjeta, Converter={StaticResource BoolToBorderColorConverter}}"
+               BackgroundColor="{Binding EsTarjeta, Converter={StaticResource BoolToBackgroundConverter}}"
+               CornerRadius="15"
+               Padding="0"
+               HasShadow="True">
+            <Grid ColumnDefinitions="Auto,*,Auto" 
+                  Padding="20"
+                  ColumnSpacing="15">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SeleccionarTarjetaCommand}"/>
+                </Grid.GestureRecognizers>
+
+                <Image Grid.Column="0"
+                       Source="tarjeta_icon.png"
+                       WidthRequest="50"
+                       HeightRequest="50"
+                       VerticalOptions="Center"/>
+
+                <VerticalStackLayout Grid.Column="1" 
+                                     VerticalOptions="Center">
+                    <Label Text="Tarjeta"
+                           FontSize="22"
+                           FontAttributes="Bold"/>
+                    <Label Text="Pague con tarjeta de crédito/débito"
+                           FontSize="14"
+                           TextColor="Gray"/>
+                </VerticalStackLayout>
+
+                <CheckBox Grid.Column="2"
+                          IsChecked="{Binding EsTarjeta}"
+                          VerticalOptions="Center"
+                          Color="{StaticResource PrimaryColor}"/>
+            </Grid>
+        </Frame>
+
+        <Button 
+            Text="Continuar"
+            Command="{Binding ContinuarCommand}"
+            Style="{StaticResource PrimaryButton}"
+            IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"
+            Margin="0,40,0,0"/>
+
+        <ActivityIndicator 
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            Color="{StaticResource PrimaryColor}"/>
+    </VerticalStackLayout>
+</ContentPage>
