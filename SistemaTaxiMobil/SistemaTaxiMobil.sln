@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36623.8 d17.14
+VisualStudioVersion = 17.14.36623.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaTaxiMobil", "SistemaTaxiMobil.csproj", "{4885AC72-5BBC-46D7-A977-8AD2891DADB0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaTaxiMobil.Core", "..\SistemaTaxiMobil.Core\SistemaTaxiMobil.Core.csproj", "{E8DF01FE-6963-45A6-8F7E-F5978CA7010C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaTaxiMobil.Infrastructure", "..\SistemaTaxiMobil.Infrastructure\SistemaTaxiMobil.Infrastructure.csproj", "{CE7656BD-4C4E-46BF-BEF1-88B69113B21E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaTaxiMobil.API", "..\SistemaTaxiMobil.API\SistemaTaxiMobil.API.csproj", "{0E301906-8A9D-4BC7-A548-4A02B23A397D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{CE7656BD-4C4E-46BF-BEF1-88B69113B21E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE7656BD-4C4E-46BF-BEF1-88B69113B21E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE7656BD-4C4E-46BF-BEF1-88B69113B21E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E301906-8A9D-4BC7-A548-4A02B23A397D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E301906-8A9D-4BC7-A548-4A02B23A397D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E301906-8A9D-4BC7-A548-4A02B23A397D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E301906-8A9D-4BC7-A548-4A02B23A397D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
