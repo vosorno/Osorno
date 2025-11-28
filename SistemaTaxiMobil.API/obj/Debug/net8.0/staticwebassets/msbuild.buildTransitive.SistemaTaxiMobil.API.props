@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\SistemaTaxiMobil.API.props" />
-</Project>
