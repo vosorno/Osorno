@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
-using SistemaTaxiMobil.Infrastructure.Repositories;
+//using Microsoft.EntityFrameworkCore;
+//using SistemaTaxiMobil.Infrastructure.Repositories;
 using SistemaTaxiMobil.Views;
 using SistemaTaxiMobil.ViewModels;
+using SistemaTaxiMobil.Services;
+using SistemaTaxiMobil.Core.Interfaces;
 
 namespace SistemaTaxiMobil
 {
@@ -13,7 +15,7 @@ namespace SistemaTaxiMobil
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseMauiCommunityToolkit()
+                //.UseMauiCommunityToolkit()
                 .UseMauiMaps()
                 .ConfigureFonts(fonts =>
                 {
@@ -22,14 +24,15 @@ namespace SistemaTaxiMobil
                 });
 
             // Configurar DbContext
+            /*
             var connectionString = "Server=DESKTOP-G8ER1PA\\BASESQLVOG;Database=SistemaTaxiMobil;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true";
-
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString,
                     sqlOptions => sqlOptions.UseNetTopologySuite()));
+            */
 
             // Registrar UnitOfWork y Repositorios
-            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            //builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             // Registrar Servicios
             builder.Services.AddScoped<IAuthService, AuthService>();
