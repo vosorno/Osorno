@@ -8,10 +8,17 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//// Configurar DbContext con SQL Server
+//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//    options.UseSqlServer(connectionString,
+//        sqlOptions => sqlOptions.UseNetTopologySuite()));
+
 // ========== CONFIGURAR DbContext ==========
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(connectionString,
+    sqlOptions => sqlOptions.UseNetTopologySuite()));
 
 // ========== REGISTRAR SERVICIOS ==========
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
