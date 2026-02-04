@@ -279,9 +279,9 @@ namespace SistemaTaxiMobil.Infrastructure.Data
             {
                 entity.ToTable("Parametros");
                 entity.HasKey(e => e.ParametrosId);
-                entity.Property(e => e.TarifaBase).HasColumnType("decimal(18, 0)");
-                entity.Property(e => e.CostoMinuto).HasColumnType("decimal(18, 0)");
-                entity.Property(e => e.CostoKilometro).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.TarifaBase).HasColumnType("decimal(12, 3)");
+                entity.Property(e => e.CostoMinuto).HasColumnType("decimal(12, 3)");
+                entity.Property(e => e.CostoKilometro).HasColumnType("decimal(12, 3)");
             });
 
             // ========== Datos Semilla (Seed Data) ==========

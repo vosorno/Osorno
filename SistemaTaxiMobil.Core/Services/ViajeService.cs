@@ -62,7 +62,7 @@ namespace SistemaTaxiMobil.Core.Services
 
                 return viaje.ViajeId;
             }
-            catch
+            catch 
             {
                 return 0;
             }
@@ -131,7 +131,7 @@ namespace SistemaTaxiMobil.Core.Services
 
         public async Task<ParametrosTarifaDto> ObtenerParametrosTarifaAsync()
         {
-            var parametros = await _unitOfWork.Parametros.GetByIdAsync(1);
+            var parametros = await _unitOfWork.Parametros.GetByIdAsync((int)1);
 
             if (parametros == null)
             {
