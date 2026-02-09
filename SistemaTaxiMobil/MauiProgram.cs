@@ -5,6 +5,7 @@ using SistemaTaxiMobil.Views;
 using SistemaTaxiMobil.ViewModels;
 using SistemaTaxiMobil.Services;
 using SistemaTaxiMobil.Core.Interfaces;
+using Refit;
 
 namespace SistemaTaxiMobil
 {
@@ -61,6 +62,11 @@ namespace SistemaTaxiMobil
             builder.Services.AddTransient<SolicitudViajePage>();
             builder.Services.AddTransient<ViajeEnCursoPage>();
             builder.Services.AddTransient<ViajeCerradoPage>();
+            builder.Services.AddRefitClient<ITaxiApi>()
+                .ConfigureHttpClient(c =>
+                {
+                    c.BaseAddress = new Uri("https://localhost:5001");
+                });
 
 #if DEBUG
             builder.Logging.AddDebug();

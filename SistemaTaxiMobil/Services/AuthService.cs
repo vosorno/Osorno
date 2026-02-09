@@ -4,16 +4,36 @@ using SistemaTaxiMobil.Core.Interfaces;
 
 namespace SistemaTaxiMobil.Services;
 
-public class AuthService : IAuthService
+public class AuthService(ITaxiApi restService) : IAuthService
 {
+    private readonly ITaxiApi _api = restService;
     public Task<bool> CorreoExisteAsync(string correo)
     {
         throw new NotImplementedException();
     }
 
-    public Task<UsuarioAutenticadoDto?> LoginAsync(LoginDto loginDto)
+    public async Task<UsuarioAutenticadoDto?> LoginAsync(LoginDto loginDto)
     {
-        throw new NotImplementedException();
+        try
+        {
+            UsuarioAutenticadoDto dto;
+            var request = await _api.LoginAsync(loginDto);
+            if (request.IsSuccessStatusCode)
+            {
+                dto = request.Content!;
+            }
+            else
+            {
+                Console.WriteLine($"Login failed: {request.StatusCode}");
+                return null;
+            }
+            return dto;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            throw;
+        }
     }
 
     public Task<bool> RegistrarPasajeroAsync(RegistroPasajeroDto pasajeroDto)
