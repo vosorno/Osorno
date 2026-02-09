@@ -12,7 +12,7 @@ namespace SistemaTaxiMobil.ViewModels
         [RelayCommand]
         async Task Ingresar()
         {
-            await Shell.Current.GoToAsync("///login");
+            await Shell.Current.GoToAsync("login");
         }
     }
 }
