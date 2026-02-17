@@ -65,8 +65,8 @@ namespace SistemaTaxiMobil
             builder.Services.AddRefitClient<ITaxiApi>()
                 .ConfigureHttpClient(c =>
                 {
-                    c.BaseAddress = new Uri("https://localhost:5001");
-                });
+                    c.BaseAddress = new Uri("http://10.0.2.2:5500");
+                }).ConfigurePrimaryHttpMessageHandler(() => ClientHandler.CreateHandler());
 
 #if DEBUG
             builder.Logging.AddDebug();
